@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "UPCityViewController.h"
 
 @interface AppDelegate ()
 
@@ -20,8 +21,13 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    self.window.rootViewController =
+    // 创建导航控制器
+    UPCityViewController *cityViewController = [[UPCityViewController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:cityViewController];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor greenColor]];
     
+    // 关联window
+    self.window.rootViewController = navigationController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
