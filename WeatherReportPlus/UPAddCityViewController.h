@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface UPAddCityViewController : UIViewController
-
+@property (nonatomic, copy) void (^updateUIblock)(void); // block用于在主界面中回调更新UI
 @end

@@ -25,7 +25,7 @@
     UPCityViewController *cityViewController = [[UPCityViewController alloc] init];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:cityViewController];
     [[UINavigationBar appearance] setBarTintColor:[UIColor greenColor]];
-    
+        
     // 关联window
     self.window.rootViewController = navigationController;
     self.window.backgroundColor = [UIColor whiteColor];
