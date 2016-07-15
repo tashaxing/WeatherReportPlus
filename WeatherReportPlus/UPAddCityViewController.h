@@ -10,4 +10,5 @@
 
 @interface UPAddCityViewController : UIViewController
 @property (nonatomic, copy) void (^updateUIblock)(void); // block用于在主界面中回调更新UI
+@property (nonatomic, strong) NSString *selectedCity; // 选中的城市
 @end

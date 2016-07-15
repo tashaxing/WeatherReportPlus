@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface UPWeatherDetailViewController : UIViewController
-
+@property (nonatomic, strong) NSString *currentCity; // 当前城市
+@property (nonatomic, assign) NSInteger cityIndex; // 当前城市索引
 @end

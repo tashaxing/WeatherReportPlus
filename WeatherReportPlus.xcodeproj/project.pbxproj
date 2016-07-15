@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E4D87BD61D35D91A005B47C7 /* CityList.json in Resources */ = {isa = PBXBuildFile; fileRef = E4D87BD51D35D91A005B47C7 /* CityList.json */; };
+		E4D87BDB1D363384005B47C7 /* WeatherDailyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D87BD81D363384005B47C7 /* WeatherDailyModel.m */; };
+		E4D87BDC1D363384005B47C7 /* WeatherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D87BDA1D363384005B47C7 /* WeatherModel.m */; };
+		E4D87BE01D363526005B47C7 /* WeatherDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D87BDF1D363526005B47C7 /* WeatherDataStore.m */; };
 		E4EB92441D34885F001B15B3 /* UPCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EB92431D34885F001B15B3 /* UPCityViewController.m */; };
 		E4EB92471D3488BB001B15B3 /* UPWeatherDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EB92461D3488BB001B15B3 /* UPWeatherDetailViewController.m */; };
 		E4EB924A1D3488F6001B15B3 /* UPAddCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EB92491D3488F6001B15B3 /* UPAddCityViewController.m */; };
-		E4EB924C1D348A82001B15B3 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4EB924B1D348A82001B15B3 /* Realm.framework */; };
-		E4EB924D1D348A96001B15B3 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4EB924B1D348A82001B15B3 /* Realm.framework */; };
-		E4EB924E1D348A96001B15B3 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E4EB924B1D348A82001B15B3 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E4EB925E1D348DD1001B15B3 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EB92521D348DD1001B15B3 /* AFHTTPSessionManager.m */; };
 		E4EB925F1D348DD1001B15B3 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EB92551D348DD1001B15B3 /* AFNetworkReachabilityManager.m */; };
 		E4EB92601D348DD1001B15B3 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EB92571D348DD1001B15B3 /* AFSecurityPolicy.m */; };
@@ -32,7 +33,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E4EB924E1D348A96001B15B3 /* Realm.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -40,13 +40,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E4D87BD51D35D91A005B47C7 /* CityList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CityList.json; sourceTree = "<group>"; };
+		E4D87BD71D363384005B47C7 /* WeatherDailyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherDailyModel.h; sourceTree = "<group>"; };
+		E4D87BD81D363384005B47C7 /* WeatherDailyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherDailyModel.m; sourceTree = "<group>"; };
+		E4D87BD91D363384005B47C7 /* WeatherModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherModel.h; sourceTree = "<group>"; };
+		E4D87BDA1D363384005B47C7 /* WeatherModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherModel.m; sourceTree = "<group>"; };
+		E4D87BDE1D363526005B47C7 /* WeatherDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherDataStore.h; sourceTree = "<group>"; };
+		E4D87BDF1D363526005B47C7 /* WeatherDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherDataStore.m; sourceTree = "<group>"; };
 		E4EB92421D34885F001B15B3 /* UPCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPCityViewController.h; sourceTree = "<group>"; };
 		E4EB92431D34885F001B15B3 /* UPCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPCityViewController.m; sourceTree = "<group>"; };
 		E4EB92451D3488BB001B15B3 /* UPWeatherDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPWeatherDetailViewController.h; sourceTree = "<group>"; };
 		E4EB92461D3488BB001B15B3 /* UPWeatherDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPWeatherDetailViewController.m; sourceTree = "<group>"; };
 		E4EB92481D3488F6001B15B3 /* UPAddCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPAddCityViewController.h; sourceTree = "<group>"; };
 		E4EB92491D3488F6001B15B3 /* UPAddCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPAddCityViewController.m; sourceTree = "<group>"; };
-		E4EB924B1D348A82001B15B3 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		E4EB92511D348DD1001B15B3 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		E4EB92521D348DD1001B15B3 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		E4EB92531D348DD1001B15B3 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -75,14 +81,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4EB924D1D348A96001B15B3 /* Realm.framework in Frameworks */,
-				E4EB924C1D348A82001B15B3 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E4D87BDD1D36338D005B47C7 /* WeatherModel */ = {
+			isa = PBXGroup;
+			children = (
+				E4D87BD71D363384005B47C7 /* WeatherDailyModel.h */,
+				E4D87BD81D363384005B47C7 /* WeatherDailyModel.m */,
+				E4D87BD91D363384005B47C7 /* WeatherModel.h */,
+				E4D87BDA1D363384005B47C7 /* WeatherModel.m */,
+				E4D87BDE1D363526005B47C7 /* WeatherDataStore.h */,
+				E4D87BDF1D363526005B47C7 /* WeatherDataStore.m */,
+			);
+			name = WeatherModel;
+			sourceTree = "<group>";
+		};
 		E4EB92501D348DD1001B15B3 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,7 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				E4EB92501D348DD1001B15B3 /* AFNetworking */,
-				E4EB924B1D348A82001B15B3 /* Realm.framework */,
 				E4FD02DC1D33527800B58C2A /* WeatherReportPlus */,
 				E4FD02DB1D33527800B58C2A /* Products */,
 			);
@@ -124,6 +140,7 @@
 		E4FD02DC1D33527800B58C2A /* WeatherReportPlus */ = {
 			isa = PBXGroup;
 			children = (
+				E4D87BDD1D36338D005B47C7 /* WeatherModel */,
 				E4EB926A1D34DD00001B15B3 /* TileButton.h */,
 				E4EB926B1D34DD00001B15B3 /* TileButton.m */,
 				E4EB92421D34885F001B15B3 /* UPCityViewController.h */,
@@ -145,6 +162,7 @@
 			children = (
 				E4EB92661D349661001B15B3 /* Assets.xcassets */,
 				E4FD02DE1D33527800B58C2A /* main.m */,
+				E4D87BD51D35D91A005B47C7 /* CityList.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -208,6 +226,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4D87BD61D35D91A005B47C7 /* CityList.json in Resources */,
 				E4EB92671D349661001B15B3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,15 +240,18 @@
 			files = (
 				E4EB92611D348DD1001B15B3 /* AFURLRequestSerialization.m in Sources */,
 				E4EB926C1D34DD00001B15B3 /* TileButton.m in Sources */,
+				E4D87BE01D363526005B47C7 /* WeatherDataStore.m in Sources */,
 				E4FD02E21D33527800B58C2A /* AppDelegate.m in Sources */,
 				E4EB92471D3488BB001B15B3 /* UPWeatherDetailViewController.m in Sources */,
 				E4EB92441D34885F001B15B3 /* UPCityViewController.m in Sources */,
 				E4EB92631D348DD1001B15B3 /* AFURLSessionManager.m in Sources */,
 				E4EB92621D348DD1001B15B3 /* AFURLResponseSerialization.m in Sources */,
 				E4EB925F1D348DD1001B15B3 /* AFNetworkReachabilityManager.m in Sources */,
+				E4D87BDB1D363384005B47C7 /* WeatherDailyModel.m in Sources */,
 				E4EB92601D348DD1001B15B3 /* AFSecurityPolicy.m in Sources */,
 				E4EB925E1D348DD1001B15B3 /* AFHTTPSessionManager.m in Sources */,
 				E4EB924A1D3488F6001B15B3 /* UPAddCityViewController.m in Sources */,
+				E4D87BDC1D363384005B47C7 /* WeatherModel.m in Sources */,
 				E4FD02DF1D33527800B58C2A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

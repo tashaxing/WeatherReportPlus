@@ -23,7 +23,7 @@
     {
         //set the main button style，in the tile button we can add many things
         self.backgroundColor = [UIColor yellowColor];
-        [self setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        [self setTitleColor:[UIColor purpleColor] forState:UIControlStateNormal];
 //        [self setTitleColor:[UIColor greenColor] forState:UIControlEventTouchDown];
         
         //add the delete button
