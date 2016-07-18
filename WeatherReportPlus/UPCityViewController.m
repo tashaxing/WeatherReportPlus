@@ -40,7 +40,9 @@ enum TouchState
 {
     NSInteger currentCityCount;
     enum TouchState touchState;
-    NSInteger preTouchID;
+//    NSInteger preTouchID;
+    // 存储当前所有处于长按悬浮状态的buton索引
+    NSMutableArray *preTouchIDArray;
 }
 @property (nonatomic, strong) NSMutableArray *tileArray; // 先用tilearray把这个装着把，后面换成数据相关的
 @property (nonatomic, strong) UITableView *tableView; // 表视图
@@ -92,11 +94,11 @@ enum TouchState
 {
     [super viewDidLoad];
 
-    // Do any additional setup after loading the view.
     _tileArray = [NSMutableArray array];
     currentCityCount = 0;
     touchState = UNTOUCHED;
-    preTouchID = -1;
+//    preTouchID = -1;
+    preTouchIDArray = [NSMutableArray array];
     
     // 从文件初始化数据
     [self initUI];
@@ -105,7 +107,6 @@ enum TouchState
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
@@ -363,7 +364,8 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
         case UIGestureRecognizerStateBegan:
             [tileBtn tileSuspended];
             touchState = SUSPEND;
-            preTouchID = tileBtn.index;
+            [preTouchIDArray addObject:[NSNumber numberWithInteger:tileBtn.index]];
+//            preTouchID = tileBtn.index;
             break;
         default:
             break;
@@ -376,7 +378,11 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 {
     if(touchState == SUSPEND)
     {
-        [_tileArray[preTouchID] tileSettled];
+        
+        for(NSNumber *preTouchID in preTouchIDArray)
+        {
+            [_tileArray[preTouchID.integerValue] tileSettled];
+        }
         touchState = UNTOUCHED;
         NSLog(@"suspend canceld");
     }
