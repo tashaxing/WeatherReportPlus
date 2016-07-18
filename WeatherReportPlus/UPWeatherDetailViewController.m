@@ -47,6 +47,8 @@ const float kTableCellHeight = 120;
     // 添加当前天气label
     _curWeatherLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, yMargin, self.view.frame.size.width, kCurWeatherLabelHeight)];
     [self.view addSubview:_curWeatherLabel];
+    [_curWeatherLabel setTextColor:[UIColor whiteColor]];
+    [_curWeatherLabel setBackgroundColor:[UIColor purpleColor]];
     [_curWeatherLabel setNumberOfLines:kCurWeatherLabelLines];
     [_curWeatherLabel setTextAlignment:NSTextAlignmentCenter];
     

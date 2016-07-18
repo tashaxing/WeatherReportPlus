@@ -42,7 +42,7 @@ enum TouchState
     enum TouchState touchState;
 //    NSInteger preTouchID;
     // 存储当前所有处于长按悬浮状态的buton索引
-    NSMutableArray *preTouchIDArray;
+    NSMutableOrderedSet *preTouchIDSet;
 }
 @property (nonatomic, strong) NSMutableArray *tileArray; // 先用tilearray把这个装着把，后面换成数据相关的
 @property (nonatomic, strong) UITableView *tableView; // 表视图
@@ -98,7 +98,7 @@ enum TouchState
     currentCityCount = 0;
     touchState = UNTOUCHED;
 //    preTouchID = -1;
-    preTouchIDArray = [NSMutableArray array];
+    preTouchIDSet = [NSMutableSet set];
     
     // 从文件初始化数据
     [self initUI];
@@ -160,7 +160,7 @@ enum TouchState
     // 添加到view
     if(_isTableStyle)
     {
-        for(TileButton *tile in _tileArray)
+        for (TileButton *tile in _tileArray)
         {
             [tile removeFromSuperview];
         }
@@ -171,7 +171,7 @@ enum TouchState
     else
     {
         [_tableView removeFromSuperview];
-        for(TileButton *tile in _tileArray)
+        for (TileButton *tile in _tileArray)
         {
             [self.view addSubview:tile];
         }
@@ -241,7 +241,7 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
         NSInteger startIndex = indexPath.row;
         CGPoint preCenter = [_tileArray[startIndex] center];
         CGPoint curCenter;
-        for(NSInteger i = startIndex + 1; i < _tileArray.count; i++)
+        for (NSInteger i = startIndex + 1; i < _tileArray.count; i++)
         {
             TileButton *movedTileBtn = _tileArray[i];
             curCenter = movedTileBtn.center;
@@ -316,7 +316,7 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
     //[_tileArray removeObject:tileBtn];
     //exchange the pointer in array and swap the index,
     //at last the tile_btn is at the new right place
-    for(NSInteger i = startIndex + 1; i < _tileArray.count; i++)
+    for (NSInteger i = startIndex + 1; i < _tileArray.count; i++)
     {
         __block TileButton *movedTileBtn = _tileArray[i];
         curCenter = movedTileBtn.center;
@@ -342,10 +342,29 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
     //we can also use performselector so that button disappears with animation
     [tileBtn removeFromSuperview];
     // 把长按状态置会正常态，否则没法点击
-    touchState = UNTOUCHED;
-    
+    // 注意每次删掉一个方块要删掉在pretouch里面之后的索引，并修改其他索引的值-1
+    if (preTouchIDSet.count == 0)
+    {
+        touchState = UNTOUCHED;
+    }
+    else
+    {
+        [preTouchIDSet removeObject:[NSNumber numberWithInteger:tileBtn.index]];
+        
+        for (NSNumber *preTouchID in preTouchIDSet)
+        {
+            if(preTouchID.integerValue > tileBtn.index)
+            {
+                // 如果
+                NSInteger tempID = preTouchID.integerValue - 1;
+                [preTouchIDSet removeObject:preTouchID];
+                [preTouchIDSet addObject:[NSNumber numberWithInteger:tempID]];
+            }
+        }
+    }
+ 
     //test the display if the array is inorder
-    for(TileButton *tile in _tileArray)
+    for (TileButton *tile in _tileArray)
     {
         NSLog(@"tile text: %@", tile.titleLabel.text);
     }
@@ -364,7 +383,7 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
         case UIGestureRecognizerStateBegan:
             [tileBtn tileSuspended];
             touchState = SUSPEND;
-            [preTouchIDArray addObject:[NSNumber numberWithInteger:tileBtn.index]];
+            [preTouchIDSet addObject:[NSNumber numberWithInteger:tileBtn.index]];
 //            preTouchID = tileBtn.index;
             break;
         default:
@@ -379,7 +398,7 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
     if(touchState == SUSPEND)
     {
         
-        for(NSNumber *preTouchID in preTouchIDArray)
+        for (NSNumber *preTouchID in preTouchIDSet)
         {
             [_tileArray[preTouchID.integerValue] tileSettled];
         }
@@ -405,7 +424,7 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
     _isTableStyle = !_isTableStyle;
     if(_isTableStyle)
     {
-        for(TileButton *tile in _tileArray)
+        for (TileButton *tile in _tileArray)
         {
             [tile removeFromSuperview];
         }
@@ -416,7 +435,7 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
     else
     {
         [_tableView removeFromSuperview];
-        for(TileButton *tile in _tileArray)
+        for (TileButton *tile in _tileArray)
         {
             [self.view addSubview:tile];
         }
